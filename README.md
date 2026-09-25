@@ -63,18 +63,7 @@ and determine the KPIs.
 > The pipeline produces all of them; the 9 above are the transcript-derived + computed
 > audit variables, plus the 2 DB-joined fields.
 
-## Install
 
-```bash
-pip install -r requirements.txt        # elevenlabs, anthropic, pandas, xlsxwriter, flask, ...
-cp .env.example .env                   # then fill in the keys (optional — demo runs without them)
-```
-
-## Run the web app
-
-```bash
-cd webapp && python app.py             # then open the address it prints (e.g. http://127.0.0.1:8000)
-```
 
 The page has three ways to run:
 
@@ -85,27 +74,8 @@ The page has three ways to run:
 - **Upload audio (.mp3/.wav)** — transcribed + speaker-split automatically (needs an
   ElevenLabs key, entered in the form or via the environment).
 
-## Layout
 
-```
-call_audit_pipeline/
-├── run.py                     # CLI orchestrator
-├── pipeline/
-│   ├── config.py              # all tunables (env-overridable)
-│   ├── schema.py              # Transcript / ComplianceFlags / AuditRecord
-│   ├── transcribe.py          # Stage 1 — ElevenLabs Scribe + diarization
-│   ├── masking.py             # Stage 2 — phone mask, anon id, PII redaction (Python, no AI)
-│   ├── extraction.py          # Stage 3 — Anthropic tool-use + KPI
-│   └── report.py              # Stage 4 — xlsx/csv writer
-├── webapp/                    # Flask web app (pages, demo, upload, download)
-├── sample_data/               # example customer DB + manifest
-├── sample_output/             # example Audit_Report.xlsx / .csv (2 calls)
-├── tests/test_offline.py
-├── requirements.txt
-└── render.yaml                # deployment config (see Render)
-```
 
----
 
 *Screening tool with human review — it flags calls for a person to confirm. Not legal advice;
 confirm GDPR and sector-specific rules with your compliance advisor.*
