@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="results-head">
+  <h1>Audit results</h1>
+  <p class="note">{{ mode_note }} &nbsp;·&nbsp; Extraction engine: <b>{{ engine }}</b></p>
+  <div class="kpis">
+    <div class="kpi total"><span>{{ n }}</span>calls audited</div>
+    <div class="kpi pass"><span>{{ n_pass }}</span>PASS</div>
+    <div class="kpi fail"><span>{{ n_fail }}</span>FAIL</div>
+  </div>
+  <div class="downloads">
+    <a class="btn" href="{{ url_for('download', run_id=run_id, fmt='xlsx') }}">⬇ Excel (.xlsx)</a>
+    <a class="btn btn-ghost" href="{{ url_for('download', run_id=run_id, fmt='csv') }}">⬇ CSV</a>
+    <a class="btn btn-ghost" href="{{ url_for('index') }}">↺ New audit</a>
+  </div>
+</section>
+
+<div class="table-wrap">
+  <table class="report">
+    <thead><tr>{% for c in columns %}<th>{{ c }}</th>{% endfor %}</tr></thead>
+    <tbody>
+      {% for row in rows %}
+      <tr>
+        {% for c in columns %}
+          {% set v = row[c] %}
+          {% if c in yesno %}
+            <td class="{{ 'yes' if v == 'YES' else 'no' }}">{{ v }}</td>
+          {% elif c == 'KPI Result' %}
+            <td class="{{ 'pass' if v == 'PASS' else 'fail' }}"><b>{{ v }}</b></td>
+          {% else %}
+            <td>{{ v }}</td>
+          {% endif %}
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

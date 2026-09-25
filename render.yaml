@@ -1,0 +1,18 @@
+# Render Blueprint — deploy ComplyCall as a public web service.
+# In Render: New → Blueprint → connect the repo containing this file.
+services:
+  - type: web
+    name: complycall
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --chdir webapp --bind 0.0.0.0:$PORT --timeout 180 app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: ANON_SALT          # stable secret for the CUST-ANON ids
+        generateValue: true
+      - key: ANTHROPIC_API_KEY  # optional — leave unset to use the no-API heuristic
+        sync: false
+      - key: ELEVENLABS_API_KEY # optional — only needed to process audio
+        sync: false

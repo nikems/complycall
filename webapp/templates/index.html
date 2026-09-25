@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Check every call. In seconds. With proof.</h1>
+  <p>Upload your debt-collection calls — ComplyCall transcribes them, hides private data,
+     checks the compliance rules, and gives you an Excel report with a PASS/FAIL score.</p>
+  <a class="btn btn-lg" href="{{ url_for('demo') }}">▶ Try the live demo (no API key)</a>
+</section>
+
+{% if error %}<div class="alert">{{ error }}</div>{% endif %}
+
+<section class="card">
+  <h2>Run on your calls</h2>
+  <form action="{{ url_for('run') }}" method="post" enctype="multipart/form-data">
+    <div class="grid">
+      <label>Transcripts (.txt) — Agent:/Customer: lines
+        <input type="file" name="transcripts" accept=".txt" multiple>
+        <small>No API key needed. File name starts with the customer ID, e.g. <code>10001_call.txt</code>.</small>
+      </label>
+      <label>Audio (.mp3 / .wav) — needs ElevenLabs key
+        <input type="file" name="audio" accept=".mp3,.wav,.m4a,.flac,.ogg" multiple>
+        <small>Transcribed and split into Agent vs Customer automatically.</small>
+      </label>
+      <label>Customer database (.csv)
+        <input type="file" name="customers" accept=".csv">
+        <small>Columns: <code>customer_id, phone, full_name</code>. Used to mask the number and redact the name.</small>
+      </label>
+      <label>Language (optional)
+        <input type="text" name="language" placeholder="e.g. ita — leave blank to auto-detect">
+      </label>
+      <label>ElevenLabs API key (optional)
+        <input type="password" name="elevenlabs_key" placeholder="only needed for audio">
+      </label>
+      <label>Anthropic API key (optional)
+        <input type="password" name="anthropic_key" placeholder="blank = no-API heuristic mode">
+      </label>
+    </div>
+    <button class="btn" type="submit">Run audit →</button>
+    <p class="hint">Keys are used only for this run and are not stored.</p>
+  </form>
+</section>
+
+<section class="how">
+  <h3>How it works</h3>
+  <ol class="steps">
+    <li><b>1 · Transcribe</b><span>split Agent vs Customer</span></li>
+    <li><b>2 · Mask</b><span>hide phone, DOB, ID, IBAN</span></li>
+    <li><b>3 · AI check</b><span>YES / NO on every rule</span></li>
+    <li><b>4 · Report</b><span>Excel / CSV + KPI</span></li>
+  </ol>
+</section>
+{% endblock %}

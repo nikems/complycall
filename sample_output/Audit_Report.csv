@@ -1,0 +1,3 @@
+Audio File,ID Number Customer (original),Customer ID (anon),Number (masked),Presentation of Agency,Presentation of Company,Name Ask,Date of Birth Ask,Client Answer (identity confirmed),Is Family Member,Refuses to Provide Identity,Satisfaction,Satisfaction Score,KPI Score,KPI Result,Language,Duration (s),Processed At
+10001_call.mp3,10001,CUST-ANON-6228,004176*98,YES,YES,YES,YES,YES,NO,NO,Positive,5,1.0,PASS,ita,72.0,2026-09-23T13:51:36
+10002_call.mp3,10002,CUST-ANON-FC06,003933*33,NO,NO,YES,NO,NO,YES,YES,Negative,1,0.25,FAIL,ita,41.0,2026-09-23T13:51:39
