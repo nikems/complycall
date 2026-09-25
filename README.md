@@ -1,6 +1,8 @@
 # Collection Call Audit Pipeline
 
-Turns collection call recordings into a compliance audit report. The scheme workflow that was used is the following -i's na example on what is posible to do
+Turns collection call recordings into a compliance audit report. 
+
+The scheme workflow that was used is the following -nit's an example on what is possible to do
 
 `
 <img width="1600" height="173" alt="wf" src="https://github.com/user-attachments/assets/1f938ffc-d75b-4299-a9ad-59c3cd092a24" />
