@@ -10,9 +10,9 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.7"
-      - key: ANON_SALT          # stable secret for the CUST-ANON ids
+      - key: ANON_SALT        
         generateValue: true
-      - key: ANTHROPIC_API_KEY  # optional — leave unset to use the no-API heuristic
+      - key: ANTHROPIC_API_KEY  # optional
         sync: false
-      - key: ELEVENLABS_API_KEY # optional — only needed to process audio
+      - key: ELEVENLABS_API_KEY # optional 
         sync: false
