@@ -5,8 +5,6 @@ Turns collection-call recordings into a compliance audit report.
 The workflow below is one example of what the pipeline can do — it is a starting point that
 can be extended further.
 `
-<img width="1600" height="173" alt="wf" src="https://github.com/user-attachments/assets/1f938ffc-d75b-4299-a9ad-59c3cd092a24" />
-
 
 
 ## The idea
