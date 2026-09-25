@@ -2,10 +2,9 @@
 
 Turns collection call recordings into a compliance audit report. The scheme workflow that was used is the following -i's na example on what is posible to do
 
-```
-<img width="1221" height="126" alt="image" src="https://github.com/user-attachments/assets/a7ada5a4-2ba7-4aaa-8494-9f1bececd312" />
+`
+<img width="1600" height="173" alt="wf" src="https://github.com/user-attachments/assets/1f938ffc-d75b-4299-a9ad-59c3cd092a24" />
 
-```
 
 1. **Transcribe** (`pipeline/transcribe.py`) — ElevenLabs Scribe with diarization,
    producing `Agent/Operator:` / `Customer:` turns. Uses `detect_speaker_roles` when
