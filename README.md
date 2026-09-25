@@ -1,13 +1,11 @@
 # Collection Call Audit Pipeline
 
-** Live demo: https://complycall.onrender.com/ **
+>  **Built during the Legal Hackathon — Swiss {ai} Weeks, September 2026.**
 
 Turns collection-call recordings into a compliance audit report.
 
 The workflow below is one example of what the pipeline can do — it is a starting point that
 can be extended further.
-`
-
 
 ## The idea
 
@@ -23,6 +21,15 @@ In our workflow:
    variables of interest, i.e. selects the information we need.
 
 <img width="1600" height="173" alt="wf" src="https://github.com/user-attachments/assets/1f938ffc-d75b-4299-a9ad-59c3cd092a24" />
+
+## Where it helps
+
+- **Debt-collection calls** (primary use case) — the agent must name the agency and the
+  creditor, verify identity, and never disclose the debt to a family member.
+- **Insurance & telemarketing sales calls** — the same needs: the caller must identify
+  themselves and the company, state the product terms, capture consent, and not mislead.
+
+Same engine, different rules — easily adapted to banking, telco or healthcare calls.
 
 ## Workflow
 
@@ -77,8 +84,11 @@ The page has three ways to run:
   ElevenLabs key, entered in the form or via the environment).
 
 
+## About
 
+This project was created during the Legal Hackathon — Swiss {ai} Weeks (September 2026) as a proof of concept — a starting point that can be developed further.
+
+---
 
 *Screening tool with human review — it flags calls for a person to confirm. Not legal advice;
 confirm GDPR and sector-specific rules with your compliance advisor.*
-
