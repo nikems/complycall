@@ -2,7 +2,13 @@
 
 Turns collection call recordings into a compliance audit report. 
 
-The scheme workflow that was used is the following -nit's an example on what is possible to do
+The scheme workflow that was used is the following - it's an example on what is possible to do, so it can be developed further.
+
+The mai idea of the project is Data Minimizer, and to build an AI assistant for privacy worflflow.
+The main toll, for whcih the idea come, is ElevenLabs
+ElevenLabs can be configured to comply with GDPR rules.
+In pur Work ElevnLabs convert the audio in text, after we apply a minimization to the sensitivy data. and after an agent, like claude in dthis case create the varible sof interest, or selcet the informatio need.
+
 
 `
 <img width="1600" height="173" alt="wf" src="https://github.com/user-attachments/assets/1f938ffc-d75b-4299-a9ad-59c3cd092a24" />
