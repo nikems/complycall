@@ -1,17 +1,15 @@
 # Debt-Collection Call Audit Pipeline
 
-Turns debt-collection call recordings into a compliance audit report. Four stages,
-matching your workflow diagram:
+Turns collection call recordings into a compliance audit report. The scheme workflow that was used is the following -i's na example on what is posible to do
 
 ```
-Call Audio (.mp3/.wav) ──1. ElevenLabs Scribe STT──▶ Speaker Transcript ──3. Extraction Engine──▶ audit variables ─┐
-                                                                                                                    ├─4. Excel Generator──▶ Audit_Report.xlsx / .csv
-Customer Database (.csv) ─────────────2. Phone Masking──────────────▶ Masked Number (004176*98) + anon ID ─────────┘
+<img width="1221" height="126" alt="image" src="https://github.com/user-attachments/assets/a7ada5a4-2ba7-4aaa-8494-9f1bececd312" />
+
 ```
 
 1. **Transcribe** (`pipeline/transcribe.py`) — ElevenLabs Scribe with diarization,
-   producing `Agent:` / `Customer:` turns. Uses `detect_speaker_roles` when
-   available (scribe_v2); otherwise maps the first speaker to Agent.
+   producing `Agent/Operator:` / `Customer:` turns. Uses `detect_speaker_roles` when
+   available (scribe_v2); otherwise maps the first speaker to Agent/Operator.
 2. **Mask** (`pipeline/masking.py`) — masks the phone from the customer DB to
    `004176*98`, mints a deterministic, non-reversible `CUST-ANON-XXXX` id, and
    redacts phone / full DOB / fiscal code / IBAN / email / customer name from the
@@ -22,7 +20,8 @@ Customer Database (.csv) ─────────────2. Phone Masking
 4. **Report** (`pipeline/report.py`) — one row per call, `Audit_Report.xlsx`
    (colour-coded YES/NO and PASS/FAIL, plus an Evidence sheet) and `Audit_Report.csv`.
 
-## The audit variables
+## Examples of the audit variables
+It's possible to create more varibles, we create some Binary Variables that could pemrit to check the compliance and help to dtermine the KPIs.
 
 | # | Column | Source | Meaning |
 |---|--------|--------|---------|
@@ -44,8 +43,7 @@ Customer Database (.csv) ─────────────2. Phone Masking
 > transcript. The pipeline produces all of them; the 9 above are the
 > transcript-derived + computed audit variables, plus the 2 DB-joined fields.
 
-The KPI's mandatory steps (agency, company, name, DOB) and pass threshold are
-configurable in `pipeline/config.py` / via env vars.
+
 
 ## Install
 
