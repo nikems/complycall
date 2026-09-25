@@ -7,6 +7,23 @@
   <a class="btn btn-lg" href="{{ url_for('demo') }}">▶ Try the live demo (no API key)</a>
 </section>
 
+<section class="card usecases">
+  <h2>Where it helps</h2>
+  <div class="grid">
+    <div>
+      <h3>Debt-collection calls</h3>
+      <p>The agent must name the agency and the creditor, verify identity, and never
+         disclose the debt to a family member. ComplyCall checks all of it, on every call.</p>
+    </div>
+    <div>
+      <h3>Insurance &amp; telemarketing sales calls</h3>
+      <p>The same needs: the caller must identify themselves and the company, state the
+         product terms, capture consent, and not mislead — with private data protected.</p>
+    </div>
+  </div>
+  <p class="hint">Same engine, different rules — easily adapted to banking, telco or healthcare calls.</p>
+</section>
+
 {% if error %}<div class="alert">{{ error }}</div>{% endif %}
 
 <section class="card">
