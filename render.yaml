@@ -1,5 +1,4 @@
-# Render Blueprint — deploy ComplyCall as a public web service.
-# In Render: New → Blueprint → connect the repo containing this file.
+
 services:
   - type: web
     name: complycall
