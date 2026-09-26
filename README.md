@@ -2,7 +2,7 @@
 
 >  **Built during the Legal Hackathon — Swiss {ai} Weeks, September 2026.**
 
->  https://complycall.onrender.com
+>  **Try the demo: https://lnkd.in/emUVwya3**
 
 Turns collection-call recordings into a compliance audit report.
 
